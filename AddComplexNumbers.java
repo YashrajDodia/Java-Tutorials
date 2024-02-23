@@ -2,6 +2,10 @@ import java.util.Scanner;
 class ComplexNumbers{
 	int x;
 	int y;
+	public ComplexNumbers(){
+       x=5;
+       y=6;
+	}
 	public ComplexNumbers(int x, int y){
        this.x = x;
        this.y = y;
@@ -22,10 +26,7 @@ public static void main(String[] args){
 		x = sc.nextInt();
 		y = sc.nextInt();
 		ComplexNumbers c1 = new ComplexNumbers(x,y);
-		System.out.print("Enter x and y for equation 2 : ");
-		x = sc.nextInt();
-		y = sc.nextInt();
-		ComplexNumbers c2 = new ComplexNumbers(x,y);
+		ComplexNumbers c2 = new ComplexNumbers();
 		ComplexNumbers c3 = new ComplexNumbers(0,0);
 		c3.addComplexNumbers(c1,c2);
 	}
