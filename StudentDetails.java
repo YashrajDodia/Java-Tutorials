@@ -4,40 +4,29 @@ class Student{
 	Scanner sc = new Scanner(System.in);
 	int id_No;
 	int no_of_subjects_registered;
-	int subject_code;
-	int subject_credit;
-	char grade_obtained;
 	double spi;
-	public Student(){
-		System.out.print("Enter id number : ");
+	public Student(int j){
+		System.out.print("Enter id number of student no. "+ (j+1)+" : ");
 		id_No = sc.nextInt();
 		System.out.print("Enter no of subjects registered : ");
 		no_of_subjects_registered = sc.nextInt();
-		System.out.print("Enter subject code : ");
-		subject_code = sc.nextInt();
-		System.out.print("Enter grade obtained : ");
-		grade_obtained = sc.next().charAt(0);
+		int[] subject_code = new int[no_of_subjects_registered];
+	        int[] subject_credit = new int[no_of_subjects_registered];
+		char[] grade_obtained = new char[no_of_subjects_registered];
+		for (int i=0;i<no_of_subjects_registered;i++) {
+			System.out.print("  Enter subject code for subject no. "+(i+1)+" : ");
+			subject_code[i]=sc.nextInt();
+			System.out.print("  Enter subject credit : ");
+			subject_credit[i] = sc.nextInt();
+			System.out.print("  Enter grade obtained in this subject : ");
+			grade_obtained[i]=sc.next().charAt(0);  
+		}
 	}
-
-	public double calculateSPI(){
-		if(grade_obtained=='A'){
-			return 10;
-		}
-		else if(grade_obtained=='B'){
-			return 9;
-		}
-		else if(grade_obtained=='C'){
-			return 7;
-		}
-		else if(grade_obtained=='D'){
-			return 5;
-		}
-		else{
-			System.out.println("You are Fail");
-			return 0;
-		}
+	public void calculateSPI(){
+		//logic
 	}
 }
+
 
 public class StudentDetails{
 public static void main(String[] args) {
@@ -46,9 +35,9 @@ public static void main(String[] args) {
 		int n = sc1.nextInt();
 		Student[] s = new Student[n];
 		for (int i=0;i<n;i++){
-			s[i] = new Student();
-			Double spi = s[i].calculateSPI();
-			System.out.println("SPI is : "+spi);
+			s[i] = new Student(i);
+			// Double spi = s[i].calculateSPI();
+			// System.out.println("SPI is : "+spi);
 		}
 	}
 }	
